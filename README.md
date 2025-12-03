@@ -301,8 +301,4 @@ For issues or questions:
 
 ---
 
-**⭐ If you found this project helpful, please give it a star!**
 
----
-
-Made with ❤️ using React Native and TypeScript
