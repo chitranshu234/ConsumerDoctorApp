@@ -1,0 +1,62 @@
+diff --git a/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/kitlogger.js b/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/kitlogger.js
+index 00ce8e6..1155a04 100644
+--- a/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/kitlogger.js
++++ b/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/kitlogger.js
+@@ -26,9 +26,9 @@ const ZegoUIKitLogger = {
+   logInfo: (module, ...msg) => {
+     let dateFormat = (0, _timer.getLocalDateFormat)();
+     if (_reactNative.Platform.OS === 'ios') {
+-      LogRNModule.logInfo(`${dateFormat} I/${module}: ` + _formatLog(...msg));
++      LogRNModule?.logInfo(`${dateFormat} I/${module}: ` + _formatLog(...msg));
+     } else {
+-      LogRNModule.logInfo(`I/${module}: ` + _formatLog(...msg));
++      LogRNModule?.logInfo(`I/${module}: ` + _formatLog(...msg));
+     }
+     if (__DEV__) {
+       console.info(`${dateFormat} [${module}][${_userID}]`, ...msg);
+@@ -37,9 +37,9 @@ const ZegoUIKitLogger = {
+   logWarning: (module, ...msg) => {
+     let dateFormat = (0, _timer.getLocalDateFormat)();
+     if (_reactNative.Platform.OS === 'ios') {
+-      LogRNModule.logWarning(`${dateFormat} W/${module}: ` + _formatLog(...msg));
++      LogRNModule?.logWarning(`${dateFormat} W/${module}: ` + _formatLog(...msg));
+     } else {
+-      LogRNModule.logWarning(`W/${module}: ` + _formatLog(...msg));
++      LogRNModule?.logWarning(`W/${module}: ` + _formatLog(...msg));
+     }
+     if (__DEV__) {
+       console.warn(`${dateFormat} [${module}][${_userID}]`, ...msg);
+@@ -48,9 +48,9 @@ const ZegoUIKitLogger = {
+   logError: (module, ...msg) => {
+     let dateFormat = (0, _timer.getLocalDateFormat)();
+     if (_reactNative.Platform.OS === 'ios') {
+-      LogRNModule.logError(`${dateFormat} E/${module}: ` + _formatLog(...msg));
++      LogRNModule?.logError(`${dateFormat} E/${module}: ` + _formatLog(...msg));
+     } else {
+-      LogRNModule.logError(`E/${module}: ` + _formatLog(...msg));
++      LogRNModule?.logError(`E/${module}: ` + _formatLog(...msg));
+     }
+     if (__DEV__) {
+       console.error(`${dateFormat} [${module}][${_userID}]`, ...msg);
+diff --git a/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/report.js b/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/report.js
+index 0558cd8..ca52be7 100644
+--- a/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/report.js
++++ b/node_modules/@zegocloud/zego-uikit-rn/lib/commonjs/utils/report.js
+@@ -23,7 +23,7 @@ const ZegoUIKitReport = {
+     // @ts-ignore
+     commonParams.uikit_version = (0, _package_version.getPackageVersion)();
+     (0, _logger.zloginfo)(`[ZegoUIKitReport][create] appID: ${appID}, commonParams: ${JSON.stringify(commonParams)}`);
+-    ReportRNModule.create(appID.toString(), appSign, commonParams);
++    ReportRNModule?.create(appID.toString(), appSign, commonParams);
+   },
+   updateCommonParams: params => {
+     (0, _logger.zloginfo)('[ZegoUIKitReport][updateCommonParams]');
+@@ -31,7 +31,7 @@ const ZegoUIKitReport = {
+   },
+   reportEvent: (event, params) => {
+     (0, _logger.zloginfo)(`[ZegoUIKitReport][reportEvent] ${event}`);
+-    ReportRNModule.reportEvent(event, params);
++    ReportRNModule?.reportEvent(event, params);
+   }
+ };
+ var _default = exports.default = ZegoUIKitReport;
