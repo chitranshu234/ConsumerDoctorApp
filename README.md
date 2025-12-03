@@ -1,4 +1,4 @@
-# 🏥 ConsumerDoctorApp - Telemedicine Mobile Application
+# 🏥 ConsumerDoctorApp(MediConnect) - Telemedicine Mobile Application
 
 > A full-featured React Native telemedicine app with real-time video calling using Zego Cloud SDK
 
