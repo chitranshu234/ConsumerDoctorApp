@@ -278,12 +278,6 @@ This project is created as part of a React Native Mobile App Developer Internshi
 
 ---
 
-## 👤 Developer
-
-**Chitrasen** - React Native Developer Intern
-
----
-
 ## 🙏 Acknowledgments
 
 - **Zego Cloud** - For the excellent video calling SDK
