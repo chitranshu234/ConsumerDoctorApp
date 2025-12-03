@@ -296,4 +296,4 @@ For issues or questions:
 ---
 
 
-Made with ❤️ by **Chitranshu Pandey**
+Made by **Chitranshu Pandey**
