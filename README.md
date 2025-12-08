@@ -1,145 +1,121 @@
-# 🏥 ConsumerDoctorApp(MediConnect)
+# ConsumerDoctorApp (MediConnect)
 
-A telemedicine app built with React Native that lets patients video call with doctors. Simple, functional, and works!
+A telemedicine mobile application built with React Native for connecting patients with doctors through video consultations.
 
-## What's This?
+## Overview
 
-This is a full-featured healthcare app where:
-- **Patients** can search for doctors, book appointments, and do video consultations
-- **Doctors** can manage appointments and consult with patients via video
+This app provides two interfaces:
+- **Patients**: Search doctors, book appointments, and conduct video consultations
+- **Doctors**: Manage appointments and consult with patients
 
-Built for a React Native internship assignment.
+## Features
 
-## 🎯 Main Features
+**Patient Side:**
+- Doctor search and filtering
+- Appointment booking
+- Video consultations
+- Medical records access
+- Prescription management
 
-**For Patients:**
-- Find and book doctors by specialization
-- Video call with doctors
-- Manage appointments and prescriptions
-- View medical records
+**Doctor Side:**
+- Appointment scheduling
+- Video consultations
+- Prescription creation
+- Patient information management
 
-**For Doctors:**
-- See appointment schedule
-- Video consultations with patients
-- Create and share prescriptions
+## Tech Stack
 
-**The Cool Part:** Real-time HD video calls using Zego Cloud SDK
-
-## 🛠️ Tech Stack
-
-- React Native + TypeScript
+- React Native
+- TypeScript
 - React Navigation
-- Zego Cloud SDK (for video calls)
-- Context API (state management)
+- Context API (State Management)
+- Zego Cloud SDK (Video Calling)
 
-## 🚀 Quick Start
+## Installation
 
-### Prerequisites
-
-You'll need:
-- Node.js (v16+)
-- React Native CLI
-- Android Studio or Xcode
-- A Zego Cloud account (free signup)
-
-### Setup
-
-1. **Clone and install:**
+1. Clone the repository
 ```bash
-git clone <your-repo>
+git clone <repository-url>
 cd ConsumerDocterApp
 npm install
 ```
 
-2. **Get Zego credentials:**
-   - Sign up at [zegocloud.com](https://www.zegocloud.com/)
-   - Create a project and grab your AppID and AppSign
-   - Add them to `src/constants/config.ts`
+2. Configure Zego Cloud credentials in `src/constants/config.ts`:
+   - Sign up at zegocloud.com
+   - Get your AppID and AppSign
+   - Add them to the config file
 
-3. **Run it:**
+3. Run the app:
 
-Android:
+**Android:**
 ```bash
 npm run android
 ```
 
-iOS (Mac only):
+**iOS (macOS required):**
 ```bash
 cd ios && pod install && cd ..
 npm run ios
 ```
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 src/
-├── screens/          # All app screens
-│   ├── patient/      # 19 screens for patients
-│   └── doctor/       # 12 screens for doctors
-├── navigation/       # App navigation setup
-├── context/          # Auth state management
-├── constants/        # Theme colors, Zego config
-└── services/         # Mock data service
+├── screens/
+│   ├── patient/      # 19 patient screens
+│   └── doctor/       # 12 doctor screens
+├── navigation/       # Navigation configuration
+├── context/          # Authentication context
+├── constants/        # Theme and configuration
+└── services/         # Data services
 ```
 
-## 🎥 Video Calling
+## Video Call Implementation
 
-The video call feature includes:
-- Mute/unmute mic
-- Camera on/off
-- End call
-- Auto permission requests
+- One-to-one video calls using Zego Cloud SDK
+- Microphone and camera controls
+- Deterministic room IDs for reliable connections
+- Automatic permission handling
 
-**How it works:** Each doctor gets a unique room ID, so when a patient calls Dr. X, they both join the same room. Simple!
+## Troubleshooting
 
-## ⚠️ Common Issues
-
-**"Insufficient Storage" error?**
+**Build errors (insufficient storage):**
 ```bash
 adb -s emulator-5554 uninstall com.consumerdocterapp
 npm run android
 ```
 
-**Metro cache issues?**
+**Clear Metro cache:**
 ```bash
 npm start -- --reset-cache
 ```
 
-**iOS pod issues?**
+**iOS pod issues:**
 ```bash
 cd ios
 rm -rf Pods Podfile.lock
 pod install
 ```
 
-## 📱 Supported Platforms
+## Platform Support
 
--  **Android** - Fully tested
--  **iOS** - Ready to build (need a Mac)
+- **Android**: Fully tested
+- **iOS**: Ready to build (requires macOS)
 
-## 🔑 Important Notes
+## Requirements
 
-1. **Zego Config:** You MUST add your own Zego credentials in `config.ts` for calls to work
-2. **Mock Data:** Currently using dummy data from `MockDataService.ts`
-3. **Patches:** Some Zego SDK fixes are auto-applied via `patch-package`
+- Node.js v16+
+- React Native CLI
+- Android Studio / Xcode
+- Zego Cloud account
 
-## 📦 APK Location
+## APK Location
 
-After building, find your APK here:
+Built APK can be found at:
 ```
 android/app/build/outputs/apk/debug/app-debug.apk
 ```
-
-Install it on any Android phone!
-
-## 🤝 What I Learned
-
-Building this taught me:
-- Integrating video SDKs 
-- Debugging native modules
-- Managing complex navigation flows
-- TypeScript best practices
-- Cross-platform considerations
 
 ---
 
