@@ -1,299 +1,146 @@
-# 🏥 ConsumerDoctorApp(MediConnect) - Telemedicine Mobile Application
+# 🏥 ConsumerDoctorApp(MediConnect)
 
-> A full-featured React Native telemedicine app with real-time video calling using Zego Cloud SDK
+A telemedicine app built with React Native that lets patients video call with doctors. Simple, functional, and works!
 
-[![React Native](https://img.shields.io/badge/React%20Native-0.74-blue.svg)](https://reactnative.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Zego Cloud](https://img.shields.io/badge/Zego%20Cloud-SDK-green)](https://www.zegocloud.com/)
+## What's This?
 
----
+This is a full-featured healthcare app where:
+- **Patients** can search for doctors, book appointments, and do video consultations
+- **Doctors** can manage appointments and consult with patients via video
 
-## 📱 About The Project
+Built for a React Native internship assignment.
 
-**ConsumerDoctorApp** is a comprehensive telemedicine platform built with React Native that connects patients with doctors through seamless video consultations. The app features:
+## 🎯 Main Features
 
-- 👨‍⚕️ **Dual Interfaces**: Separate experiences for Patients and Doctors
-- 📞 **HD Video Calls**: Crystal-clear video consultations powered by Zego Cloud
-- 📅 **Appointment Management**: Book, track, and manage appointments
-- 💊 **Prescription Sharing**: Digital prescription management
-- 📋 **Medical Records**: Secure storage of patient health records
-- 🔒 **Secure Authentication**: Protected user sessions
+**For Patients:**
+- Find and book doctors by specialization
+- Video call with doctors
+- Manage appointments and prescriptions
+- View medical records
 
----
+**For Doctors:**
+- See appointment schedule
+- Video consultations with patients
+- Create and share prescriptions
 
-## ✨ Features
+**The Cool Part:** Real-time HD video calls using Zego Cloud SDK
 
-### 🧑‍💼 For Patients (19 Screens)
+## 🛠️ Tech Stack
 
-- 🏠 **Home Dashboard** - Quick access to doctors and appointments
-- 🔍 **Doctor Search & Listing** - Find specialists by category
-- 👨‍⚕️ **Doctor Profiles** - View ratings, experience, and availability
-- 📅 **Book Appointments** - Schedule consultations easily
-- 📞 **Video Calls** - HD video consultations with doctors
-- 💳 **Payment Integration** - Book and pay seamlessly
-- 📋 **Medical Records** - Access your health history
-- 💊 **Prescriptions** - View and download prescriptions
-- 👤 **Profile Management** - Update personal information
-- 🔔 **Notifications** - Stay updated on appointments
+- React Native + TypeScript
+- React Navigation
+- Zego Cloud SDK (for video calls)
+- Context API (state management)
 
-### 👨‍⚕️ For Doctors (12 Screens)
+## 🚀 Quick Start
 
-- 📊 **Dashboard** - Overview of appointments and patients
-- 📅 **Appointment Management** - View and manage consultations
-- 📞 **Video Consultations** - Conduct video calls with patients
-- 💊 **Prescription Creation** - Create and share digital prescriptions
-- 🩺 **Patient Details** - Access patient medical history
-- 👤 **Profile Management** - Update professional information
+### Prerequisites
 
----
+You'll need:
+- Node.js (v16+)
+- React Native CLI
+- Android Studio or Xcode
+- A Zego Cloud account (free signup)
 
-## 🚀 Tech Stack
+### Setup
 
-- **Framework**: React Native 0.74+
-- **Language**: TypeScript
-- **Navigation**: React Navigation (Stack & Tab)
-- **State Management**: Context API
-- **Video Calling**: Zego Cloud SDK
-- **Styling**: React Native StyleSheet
-- **Icons**: React Native Vector Icons
-
----
-
-## 📋 Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- ✅ **Node.js** (v16 or higher)
-- ✅ **npm** or **yarn**
-- ✅ **React Native CLI**
-- ✅ **Android Studio** (for Android)
-- ✅ **Xcode** (for iOS - macOS only)
-- ✅ **Zego Cloud Account** ([Sign up here](https://www.zegocloud.com/))
-
----
-
-## 🛠️ Installation & Setup
-
-### 1️⃣ Clone the Repository
-
+1. **Clone and install:**
 ```bash
-git clone <your-repo-url>
+git clone <your-repo>
 cd ConsumerDocterApp
-```
-
-### 2️⃣ Install Dependencies
-
-```bash
 npm install
-# or
-yarn install
 ```
 
-### 3️⃣ Get Zego Cloud Credentials
+2. **Get Zego credentials:**
+   - Sign up at [zegocloud.com](https://www.zegocloud.com/)
+   - Create a project and grab your AppID and AppSign
+   - Add them to `src/constants/config.ts`
 
-1. Go to [Zego Cloud Console](https://console.zegocloud.com/)
-2. Create a new project
-3. Navigate to **Project Management** → **Project Config**
-4. Copy your **AppID** and **AppSign**
+3. **Run it:**
 
-### 4️⃣ Configure Zego Credentials
-
-Open `src/constants/config.ts` and add your credentials:
-
-```typescript
-export const ZEGO_APP_ID = YOUR_APP_ID; // Replace with your AppID
-export const ZEGO_APP_SIGN = 'YOUR_APP_SIGN'; // Replace with your AppSign
-```
-
-### 5️⃣ Install iOS Dependencies (macOS only)
-
+Android:
 ```bash
-cd ios
-pod install
-cd ..
-```
-
----
-
-## 🏃‍♂️ Running the App
-
-### 🤖 Android
-
-```bash
-# Uninstall previous build (if needed)
-adb -s emulator-5554 uninstall com.consumerdocterapp
-
-# Run the app
 npm run android
 ```
 
-### 🍎 iOS (macOS only)
-
+iOS (Mac only):
 ```bash
+cd ios && pod install && cd ..
 npm run ios
 ```
-
----
 
 ## 📂 Project Structure
 
 ```
-ConsumerDocterApp/
-├── src/
-│   ├── screens/
-│   │   ├── patient/          # Patient screens (19 screens)
-│   │   └── doctor/           # Doctor screens (12 screens)
-│   ├── navigation/
-│   │   ├── AppNavigator.tsx
-│   │   ├── PatientNavigator.tsx
-│   │   └── DoctorNavigator.tsx
-│   ├── context/
-│   │   └── AuthContext.tsx   # Authentication state
-│   ├── constants/
-│   │   ├── theme.ts          # Colors, spacing, typography
-│   │   └── config.ts         # Zego credentials
-│   ├── services/
-│   │   └── MockDataService.ts # Mock data
-│   └── types/
-│       └── index.ts          # TypeScript types
-├── android/                  # Android native code
-├── ios/                      # iOS native code
-└── patches/                  # Zego SDK patches
+src/
+├── screens/          # All app screens
+│   ├── patient/      # 19 screens for patients
+│   └── doctor/       # 12 screens for doctors
+├── navigation/       # App navigation setup
+├── context/          # Auth state management
+├── constants/        # Theme colors, Zego config
+└── services/         # Mock data service
 ```
 
----
+## 🎥 Video Calling
 
-## 🎥 Video Call Features
+The video call feature includes:
+- Mute/unmute mic
+- Camera on/off
+- End call
+- Auto permission requests
 
-### ✅ Implemented Features
+**How it works:** Each doctor gets a unique room ID, so when a patient calls Dr. X, they both join the same room. Simple!
 
-- 📞 **One-to-one video calls**
-- 🎤 **Mute/unmute microphone**
-- 📹 **Enable/disable camera**
-- 🔊 **Speaker/earpiece toggle**
-- ☎️ **End call functionality**
-- 🚪 **Automatic call cleanup**
+## ⚠️ Common Issues
 
-### 🔑 Key Implementation Details
-
-- **Deterministic Room IDs**: Uses doctor ID to ensure both parties join the same room
-- **Permission Handling**: Auto-requests camera/microphone permissions
-- **Graceful Disconnection**: 1-second delay before unmounting for clean exit
-- **Audio Configuration**: Forces audio/video ON by default
-
----
-
-## 🐛 Troubleshooting
-
-### ❌ Build Failed: Insufficient Storage
-
-**Solution**: Uninstall the app before building
-
+**"Insufficient Storage" error?**
 ```bash
 adb -s emulator-5554 uninstall com.consumerdocterapp
 npm run android
 ```
 
-### ❌ Zego SDK Crashes
-
-**Solution**: Patches are already applied via `patch-package`. If you reinstall `node_modules`, run:
-
-```bash
-npm install
-# Patches will auto-apply via postinstall script
-```
-
-### ❌ iOS Build Issues
-
-**Solution**: Reinstall pods
-
-```bash
-cd ios
-rm -rf Pods Podfile.lock
-pod install
-cd ..
-```
-
-### ❌ Metro Bundler Cache Issues
-
-**Solution**: Clear Metro cache
-
+**Metro cache issues?**
 ```bash
 npm start -- --reset-cache
 ```
 
----
-
-## 📱 Platform Support
-
-| Platform | Status | Notes |
-|----------|--------|-------|
-| 🤖 **Android** | ✅ Fully Supported | Tested on Android 10+ |
-| 🍎 **iOS** | ✅ Ready | Requires macOS to build |
-
----
-
-## 🎨 Design
-
-The UI is designed in Figma with:
-- 🎨 Modern, clean interface
-- 🌈 Consistent color scheme (Green primary)
-- 📱 Responsive layouts
-- ♿ Accessibility considerations
-
----
-
-## 🔒 Security
-
-- 🔐 **Secure Authentication**: Context-based auth flow
-- 🔑 **Environment Variables**: Credentials stored in `config.ts`
-- 🛡️ **Privacy**: Video calls are end-to-end encrypted by Zego
-
----
-
-## 📦 Key Dependencies
-
-```json
-{
-  "@react-navigation/native": "Latest",
-  "@react-navigation/stack": "Latest",
-  "@react-navigation/bottom-tabs": "Latest",
-  "@zegocloud/zego-uikit-prebuilt-call-rn": "Latest",
-  "react-native-vector-icons": "Latest",
-  "react-native-safe-area-context": "Latest"
-}
+**iOS pod issues?**
+```bash
+cd ios
+rm -rf Pods Podfile.lock
+pod install
 ```
 
+## 📱 Supported Platforms
+
+-  **Android** - Fully tested
+-  **iOS** - Ready to build (need a Mac)
+
+## 🔑 Important Notes
+
+1. **Zego Config:** You MUST add your own Zego credentials in `config.ts` for calls to work
+2. **Mock Data:** Currently using dummy data from `MockDataService.ts`
+3. **Patches:** Some Zego SDK fixes are auto-applied via `patch-package`
+
+## 📦 APK Location
+
+After building, find your APK here:
+```
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+Install it on any Android phone!
+
+## 🤝 What I Learned
+
+Building this taught me:
+- Integrating video SDKs 
+- Debugging native modules
+- Managing complex navigation flows
+- TypeScript best practices
+- Cross-platform considerations
+
 ---
-
-## 🤝 Contributing
-
-This is an internship assignment project. However, suggestions and improvements are welcome!
-
----
-
-## 📄 License
-
-This project is created as part of a React Native Mobile App Developer Internship Assignment.
-
----
-
-## 🙏 Acknowledgments
-
-- **Zego Cloud** - For the excellent video calling SDK
-- **React Native Community** - For the amazing tools and libraries
-- **Design Team** - For the beautiful Figma designs
-
----
-
-## 📞 Support
-
-For issues or questions:
-1. Check the [Troubleshooting](#-troubleshooting) section
-2. Review [Zego Documentation](https://docs.zegocloud.com/)
-3. Check React Native docs
-
----
-
 
 Made by **Chitranshu Pandey**
