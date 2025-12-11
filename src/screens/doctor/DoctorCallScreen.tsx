@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, StatusBar, PermissionsAndroid, Platform } from 'react-native';
+import { View, StyleSheet, StatusBar, PermissionsAndroid, Platform, SafeAreaView } from 'react-native';
 import { ZegoUIKitPrebuiltCall, ONE_ON_ONE_VIDEO_CALL_CONFIG } from '@zegocloud/zego-uikit-prebuilt-call-rn';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { ZEGO_APP_ID, ZEGO_APP_SIGN } from '../../constants/config';
@@ -47,7 +47,7 @@ const DoctorCallScreen = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <StatusBar hidden />
             {isCallActive ? (
                 <ZegoUIKitPrebuiltCall
@@ -79,7 +79,7 @@ const DoctorCallScreen = () => {
             ) : (
                 <View style={{ flex: 1, backgroundColor: '#000' }} />
             )}
-        </View>
+        </SafeAreaView>
     );
 };
 

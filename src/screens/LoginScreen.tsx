@@ -27,6 +27,7 @@ const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [role, setRole] = useState<'patient' | 'doctor'>('patient');
 
     const validateForm = () => {
         if (!email.trim()) {
@@ -53,7 +54,7 @@ const LoginScreen = () => {
 
         setIsLoading(true);
         try {
-            await login(email, password);
+            await login(email, password, role);
         } catch (error) {
             Alert.alert('Error', 'Login failed. Please try again.');
         } finally {
@@ -71,6 +72,40 @@ const LoginScreen = () => {
                 <View style={styles.content}>
                     <Text style={styles.title}>Welcome Back</Text>
                     <Text style={styles.subtitle}>Login to your account</Text>
+
+                    {/* Role Selector */}
+                    <View style={styles.roleContainer}>
+                        <TouchableOpacity
+                            style={[
+                                styles.roleButton,
+                                role === 'patient' && styles.roleButtonActive,
+                            ]}
+                            onPress={() => setRole('patient')}
+                            disabled={isLoading}>
+                            <Text
+                                style={[
+                                    styles.roleText,
+                                    role === 'patient' && styles.roleTextActive,
+                                ]}>
+                                Patient
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={[
+                                styles.roleButton,
+                                role === 'doctor' && styles.roleButtonActive,
+                            ]}
+                            onPress={() => setRole('doctor')}
+                            disabled={isLoading}>
+                            <Text
+                                style={[
+                                    styles.roleText,
+                                    role === 'doctor' && styles.roleTextActive,
+                                ]}>
+                                Doctor
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <View style={styles.form}>
                         <View style={styles.inputContainer}>
